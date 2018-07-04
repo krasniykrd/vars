@@ -31,6 +31,8 @@ cp -f /root/easy-rsa/easyrsa3/pki/ca.crt /etc/openvpn/keys
 cp -f /root/easy-rsa/easyrsa3/pki/issued/server.crt /etc/openvpn/keys
 cp -f /root/easy-rsa/easyrsa3/pki/private/server.key /etc/openvpn/keys
 cp -f /root/easy-rsa/easyrsa3/pki/dh.pem /etc/openvpn/keys
+cp -f /root/vars/vars /root/easy-rsa/easyrsa3/vars
+sed -i 's/#CN#/S2S/' vars
 ./easyrsa gen-req s2s nopass
 ./easyrsa sign-req client s2s
 service openvpn restart
