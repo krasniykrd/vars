@@ -35,5 +35,6 @@ cp -f /root/vars/vars /root/easy-rsa/easyrsa3/vars
 sed -i 's/#CN#/S2S/' vars
 ./easyrsa gen-req s2s nopass
 ./easyrsa sign-req client s2s
+mkdir -p /etc/openvpn/ccd
 service openvpn restart
 echo "Successfully installed"

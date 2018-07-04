@@ -29,6 +29,7 @@ sed -i 's/#UP#/\/etc\/openvpn\/up1.sh/' /etc/openvpn/server.conf
 mkdir -p /etc/openvpn/keys
 mkdir -p /etc/openvpn/keys/s2s
 mkdir -p /root/configs
+mkdir -p /etc/openvpn/ccd
 cp -f /root/easy-rsa/easyrsa3/pki/ca.crt /etc/openvpn/keys
 cp -f /root/easy-rsa/easyrsa3/pki/issued/server.crt /etc/openvpn/keys
 cp -f /root/easy-rsa/easyrsa3/pki/private/server.key /etc/openvpn/keys
