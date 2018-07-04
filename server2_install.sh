@@ -9,7 +9,6 @@ sed -i 's/#net.ipv4.ip_forward=1/net.ipv4.ip_forward=1/' /etc/sysctl.conf
 cd /root
 apt update && apt -y install openvpn git
 sed -i 's/#AUTOSTART=\"all\"/AUTOSTART=\"all\"/' /etc/default/openvpn
-systemctl daemon-reload
 git clone https://github.com/OpenVPN/easy-rsa.git
 git clone https://github.com/krasniykrd/vars.git
 cd /root/easy-rsa/easyrsa3
@@ -36,5 +35,6 @@ sed -i 's/#CN#/S2S/' vars
 ./easyrsa gen-req s2s nopass
 ./easyrsa sign-req client s2s
 mkdir -p /etc/openvpn/ccd
+systemctl daemon-reload
 service openvpn restart
 echo "Successfully installed"
