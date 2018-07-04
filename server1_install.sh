@@ -48,8 +48,8 @@ sed -i 's/#CN#/Client/' vars
 ./easyrsa gen-req client nopass
 ./easyrsa sign-req client client
 cp -f /root/vars/client.ovpn /root/easy-rsa/easyrsa3
-sed -i 's/#SERVER#/$SERVER_IP/' /root/easy-rsa/easyrsa3/client.ovpn
-zip -9 /root/configs/client.zip /root/easy-rsa/easyrsa3/client.ovpn /root/easy-rsa/easyrsa3/pki/ca.crt /root/easy-rsa/easyrsa3/pki/issued/client.crt /root/easy-rsa/easyrsa3/pki/private/client.key /root/easy-rsa/easyrsa3/pki/dh.pem
+sed -i "s/#SERVER#/$SERVER_IP/" /root/easy-rsa/easyrsa3/client.ovpn
+zip -9 -j /root/configs/client.zip /root/easy-rsa/easyrsa3/client.ovpn /root/easy-rsa/easyrsa3/pki/ca.crt /root/easy-rsa/easyrsa3/pki/issued/client.crt /root/easy-rsa/easyrsa3/pki/private/client.key /root/easy-rsa/easyrsa3/pki/dh.pem
 cd /root/configs
 nohup python3 -m http.server 80 &
 systemctl daemon-reload
